@@ -27,17 +27,22 @@ def do_stop(evt):
     global work_state
     work_state = False
     win.SetTitle('oss')
-        
+    
+def OnTimeToClose(evt):
+    global work_state
+    work_state = False
+    win.Close()
+    
 app = wx.App()
 win = wx.Frame(None,title=u"oss",size=(250,200))
 
 menuBar = wx.MenuBar()
 menu = wx.Menu()
-menu.Append(wx.ID_EXIT, u"关闭")
+menu.Append(wx.ID_EXIT, u"close")
 
 win.Bind(wx.EVT_MENU, OnTimeToClose, id=wx.ID_EXIT)
 
-menuBar.Append(menu, u"操作")
+menuBar.Append(menu, u"func")
 win.SetMenuBar(menuBar)
 
 bkg = wx.Panel(win)
