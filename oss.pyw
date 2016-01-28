@@ -9,7 +9,6 @@ import urllib2,time,thread
 work_state = False
 def longRunning():
     global work_state
-    print work_state
     while work_state:        
         p = urllib2.urlopen('http://hq.sinajs.cn/list=s_sh000001')
         sh = p.read()
@@ -34,7 +33,7 @@ def OnTimeToClose(evt):
     win.Close()
     
 app = wx.App()
-win = wx.Frame(None,title=u"oss",size=(250,200))
+win = wx.Frame(None,title=u"oss",size=(250,100))
 
 menuBar = wx.MenuBar()
 menu = wx.Menu()
@@ -46,8 +45,8 @@ menuBar.Append(menu, u"func")
 win.SetMenuBar(menuBar)
 
 bkg = wx.Panel(win)
-btn_go = wx.Button(bkg,label=u"go",pos=(1,1))
-btn_stop = wx.Button(bkg,label=u"stop",pos=(100,1))
+btn_go = wx.Button(bkg,label=u"go",pos=(20,1))
+btn_stop = wx.Button(bkg,label=u"stop",pos=(120,1))
 
 btn_go.Bind(wx.EVT_BUTTON, do_go)
 btn_stop.Bind(wx.EVT_BUTTON, do_stop)
