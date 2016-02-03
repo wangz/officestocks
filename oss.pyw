@@ -6,15 +6,20 @@ import  wx
 import  wx.gizmos   as  gizmos
 import urllib2,time,thread
 
+count = 0
 work_state = False
 def longRunning():
-    global work_state
-    while work_state:        
-        p = urllib2.urlopen('http://hq.sinajs.cn/list=s_sh000001')
-        sh = p.read()
-        #win.SetTitle(sh.split('=')[1][1:-3].split(',')[1])
-        wx.CallAfter(win.SetTitle,sh.split('=')[1][1:-3].split(',')[1])
-        print sh.split('=')[1][1:-3].split(',')[1]
+    global work_state,count
+    while work_state:
+        try:
+            p = urllib2.urlopen('http://hq.sinajs.cn/list=s_sh000001')
+            sh = p.read()
+            #win.SetTitle(sh.split('=')[1][1:-3].split(',')[1])
+            wx.CallAfter(win.SetTitle,sh.split('=')[1][1:-3].split(',')[1])
+        except Exception,e:
+            print e
+        count+=1
+        print count,' ',sh.split('=')[1][1:-3].split(',')[1]
         time.sleep(2.5)
 
 def do_go(evt):
@@ -37,7 +42,9 @@ win = wx.Frame(None,title=u"oss",size=(250,100))
 
 menuBar = wx.MenuBar()
 menu = wx.Menu()
+menu.Append(101, u"setting")
 menu.Append(wx.ID_EXIT, u"close")
+
 
 win.Bind(wx.EVT_MENU, OnTimeToClose, id=wx.ID_EXIT)
 
