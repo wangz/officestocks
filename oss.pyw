@@ -6,6 +6,12 @@ import  wx
 import  wx.gizmos   as  gizmos
 import urllib2,time,thread
 
+import logging  
+logging.basicConfig(filename='oss.log',level=logging.DEBUG,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')  
+
+##logging.info('So should this')  
+##logging.warning('And this, too') 
+
 count = 0
 work_state = False
 def longRunning():
@@ -16,10 +22,10 @@ def longRunning():
             sh = p.read()
             #win.SetTitle(sh.split('=')[1][1:-3].split(',')[1])
             wx.CallAfter(win.SetTitle,sh.split('=')[1][1:-3].split(',')[1])
+            logging.info('%s,%s,%s' % (count,' ',sh.split('=')[1][1:-3].split(',')[1]))
         except Exception,e:
-            print e
-        count+=1
-        print count,' ',sh.split('=')[1][1:-3].split(',')[1]
+            logging.warning(str(e))   
+        count+=1 
         time.sleep(2.5)
 
 def do_go(evt):
