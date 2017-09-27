@@ -1,6 +1,10 @@
 # officestocks
 for check stocks in office 办公室看股软件
 
+直接使用release-windows里解压后打开oss.exe即可
+
+#开发环境
+
 #安装
 
 1.安装python
