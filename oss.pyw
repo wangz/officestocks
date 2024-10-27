@@ -19,6 +19,7 @@ logging.basicConfig(filename='oss.log',level=logging.DEBUG,format='%(asctime)s %
 
 count = 0
 work_state = False
+headers = {'referer': 'http://finance.sina.com.cn'}
 def longRunning(val):
     global work_state,count
     url = "http://hq.sinajs.cn/list=s_%s%s"
@@ -32,7 +33,8 @@ def longRunning(val):
             loc = "sh"
     while work_state:
         try:
-            p = urllib2.urlopen(url % (loc,val))
+            req = urllib2 . Request (url % (loc,val),headers=headers)
+            p = urllib2.urlopen(req)
             sh = p.read()
             #win.SetTitle(sh.split('=')[1][1:-3].split(',')[1])
             wx.CallAfter(win.SetTitle,sh.split('=')[1][1:-3].split(',')[1])

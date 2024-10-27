@@ -21,3 +21,17 @@ for check stocks in office 办公室看股软件
 #开发
 打包EXE
 pyinstaller -w --icon=ico\Money_bag_dollar_128px_1198356_easyicon.net.ico oss.pyw
+
+#mac 上使用方式
+切到我建的虚拟环境：使用python2.7
+>conda activate myevnname
+安装python.app
+>conda install -c conda-forge python.app
+之后用pythonw运行
+>pythonw main.py
+
+
+
+
+#log
+20241028 修复了新浪接口请求拒绝的问题
