@@ -3,9 +3,8 @@ for check stocks in office 办公室看股软件
 
 直接使用release-windows里解压后打开oss.exe即可
 
-#开发环境
-
-#安装
+## 开发环境
+使用python2.7环境
 
 1.安装python
 
@@ -17,12 +16,11 @@ for check stocks in office 办公室看股软件
 
 效果图：https://github.com/wangz/officestocks/wiki
 
-
-#开发
+## 开发
 打包EXE
 pyinstaller -w --icon=ico\Money_bag_dollar_128px_1198356_easyicon.net.ico oss.pyw
 
-#mac 上使用方式
+## mac 上使用方式
 切到我建的虚拟环境：使用python2.7
 >conda activate myevnname
 安装python.app
