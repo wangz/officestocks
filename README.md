@@ -9,11 +9,9 @@ for check stocks in office 办公室看股软件
 ## 开发环境
 使用python2.7环境
 
-1.安装python
+1.安装python。可以下载ANACONDA来安装，比较方便，创建PYTHON 2.7环境。
 
 2.安装wxpython
-
-可以去官网下载，找不到的话可从这里下载：http://pan.baidu.com/s/1qXbznWS
 
 3.双击oss.pyw即可，点击go,最小化后标题显示数字为股票指数
 
